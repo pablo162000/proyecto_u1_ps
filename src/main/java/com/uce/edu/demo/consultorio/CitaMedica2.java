@@ -8,12 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CitaMedica2 {
 
-	// 3) DI por metodos set
 	private LocalDateTime fechaCita;
-
-	private Doctor doctor;// a su metodo set le pongo autowire
-
-	private Paciente paciente;
+	
+	// 3) DI por metodos set
+	private Doctor doctor;//  a su metodo Set le pongo @Autowired
+	private Paciente paciente;// a su metodo Set le pongo @Autowired
 
 	public String agendar(LocalDateTime fechaCita, String nombre, String apellido, int edad, String ciudad,
 			String nombrePaciente, int edadPaciente) {
@@ -29,7 +28,7 @@ public class CitaMedica2 {
 		// Seteamos los atributos de la cita medica
 		this.fechaCita = fechaCita;
 		// Se inserta la cita en la base de datos
-		return "Cita agendada";
+		return "Cita agendada 2";
 	}
 
 	public LocalDateTime getFechaCita() {

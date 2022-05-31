@@ -23,9 +23,9 @@ public class ProyectoU1PsApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("MI primer proyecto Spring framework");
+		System.out.println("Mi primer proyecto Spring framework");
 
-		String respuesta = this.cita2.agendar(LocalDateTime.now(), "Javier", "Teran", 32, "Quito", "", 0);
+		String respuesta = this.cita2.agendar(LocalDateTime.now(), "Javier", "Teran", 32, "Quito", "Paul", 0);
 		System.out.println(respuesta);
 
 	}

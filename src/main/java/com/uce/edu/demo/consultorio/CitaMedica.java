@@ -10,7 +10,7 @@ public class CitaMedica {
 
 	private LocalDateTime fechaCita;
 
-	//2) DI por constructor
+	// 2) DI por constructor
 	private Doctor doctor;
 
 	private Paciente paciente;
