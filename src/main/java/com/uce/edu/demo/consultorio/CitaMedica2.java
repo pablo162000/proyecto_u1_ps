@@ -6,20 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CitaMedica {
+public class CitaMedica2 {
 
+	// 3) DI por metodos set
 	private LocalDateTime fechaCita;
 
-	//2) DI por constructor
-	private Doctor doctor;
+	private Doctor doctor;// a su metodo set le pongo autowire
 
 	private Paciente paciente;
-
-	public CitaMedica(Doctor doctor, Paciente paciente) {
-
-		this.doctor = doctor;
-		this.paciente = paciente;
-	}
 
 	public String agendar(LocalDateTime fechaCita, String nombre, String apellido, int edad, String ciudad,
 			String nombrePaciente, int edadPaciente) {
@@ -50,6 +44,7 @@ public class CitaMedica {
 		return doctor;
 	}
 
+	@Autowired
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
@@ -58,6 +53,7 @@ public class CitaMedica {
 		return paciente;
 	}
 
+	@Autowired
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}

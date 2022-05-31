@@ -14,7 +14,7 @@
 	<name>proyecto_u1_ps</name>
 	<description>Mi primer proyecto con spring framework</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
