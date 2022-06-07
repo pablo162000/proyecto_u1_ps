@@ -5,10 +5,8 @@ public class Estudiante {
 	private String cedula;
 	private String nombre;
 	private String apellido;
-	
+
 	private Materia materia;
-	
-	
 
 	@Override
 	public String toString() {
