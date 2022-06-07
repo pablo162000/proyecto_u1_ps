@@ -11,20 +11,15 @@ import com.uce.edu.demo.cine.Ticket;
 import com.uce.edu.demo.cine.Ticket2;
 import com.uce.edu.demo.cine.Ticket3;
 import com.uce.edu.demo.consultorio.CitaMedica;
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.repository.IEstudianteRepository;
+import com.uce.edu.demo.service.IEstudianteService;
 
 @SpringBootApplication
 public class ProyectoU1PsApplication implements CommandLineRunner {
-	@Autowired
-	//private CitaMedica cita;
-	private CitaMedica cita2;
 	
 	@Autowired
-	private Ticket ticket;
-	@Autowired
-	private Ticket2 ticket2;
-	@Autowired
-	private Ticket3 ticket3;
-
+	private IEstudianteService estudianteService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1PsApplication.class, args);
@@ -32,21 +27,26 @@ public class ProyectoU1PsApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println("Mi primer proyecto Spring framework");
-
-		String respuesta = this.cita2.agendar(LocalDateTime.now(), "Javier", "Teran", 32, "Quito", "Paul", 0);
-		//System.out.println(respuesta);
 		
+		Estudiante e = new Estudiante();
+		e.setNombre("Pablo");
+		e.setApellido("Suntaxi");
+		e.setCedula("1724157688");
+		this.estudianteService.ingresarEstudiante(e);
 		
-		///////////////////////////////////////////////////////////
+		Estudiante e1 = new Estudiante();
+		e1.setNombre("Pepito");
+		e1.setApellido("Perez");
+		e1.setCedula("1725435689");
+		this.estudianteService.ingresarEstudiante(e1);
 		
-		String respuesta1= this.ticket.generarTicket(LocalDateTime.now(), "Pablo ", "Condado",7,"VIP" , "Rambo");
-		System.out.println(respuesta1);
-		String respuesta2= this.ticket2.generarTicket(LocalDateTime.now(), "Pablo ", "Condado",7,"VIP" , "Rambo");
-		System.out.println(respuesta2);
-		String respuesta3= this.ticket3.generarTicket(LocalDateTime.now(), "Pablo ", "Condado",7,"VIP" , "Rambo");
-		System.out.println(respuesta3);
+		//Usar los 3 métodos restantes
+		e.setCedula("1723069819");
+		this.estudianteService.actualizarEstudiante(e);
+		
+		this.estudianteService.buscarPorApellido("Suntaxi");
+		
+		this.estudianteService.borrarEstudiante("1725435689");
 
 
 	}
