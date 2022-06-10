@@ -6,7 +6,6 @@ public class CuentaBancaria {
 
 	private String numero;
 	private BigDecimal saldo; // Para valores monetarios
-	
 
 	// SET Y GET
 

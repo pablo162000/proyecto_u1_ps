@@ -3,40 +3,37 @@ package com.uce.edu.demo.banco.modelo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Deposito {
-
+public class Retiro {
+	
 	private LocalDateTime fecha;
-	private String numeroCuentaDestino;
+	private String numeroCuentaOrigen;
 	private BigDecimal monto;
-
+	
+	
 	@Override
 	public String toString() {
-		return "Deposito [fecha=" + fecha + ", numeroCuentaDestino=" + numeroCuentaDestino + ", monto=" + monto + "]";
+		return "Retiro [fecha=" + fecha + ", numeroCuentaorigen=" + numeroCuentaOrigen + ", monto=" + monto + "]";
 	}
-
-	// SET Y GET
+	
+	//SET Y GET
 	public LocalDateTime getFecha() {
 		return fecha;
 	}
-
 	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
-
-	public String getNumeroCuentaDestino() {
-		return numeroCuentaDestino;
+	public String getNumeroCuentaorigen() {
+		return numeroCuentaOrigen;
 	}
-
-	public void setNumeroCuentaDestino(String numeroCuentaDestino) {
-		this.numeroCuentaDestino = numeroCuentaDestino;
+	public void setNumeroCuentaorigen(String numeroCuentaorigen) {
+		this.numeroCuentaOrigen = numeroCuentaorigen;
 	}
-
 	public BigDecimal getMonto() {
 		return monto;
 	}
-
 	public void setMonto(BigDecimal monto) {
 		this.monto = monto;
 	}
 
+	
 }

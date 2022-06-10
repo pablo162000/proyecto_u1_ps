@@ -9,7 +9,6 @@ public class Transferencia {
 	private String numeroCuentaDestino;
 	private BigDecimal montoTransferir;
 	private LocalDateTime fechaTransferencia;
-	
 
 	// SET Y GET
 
@@ -51,6 +50,5 @@ public class Transferencia {
 	public void setFechaTransferencia(LocalDateTime fechaTransferencia) {
 		this.fechaTransferencia = fechaTransferencia;
 	}
-	
 
 }
