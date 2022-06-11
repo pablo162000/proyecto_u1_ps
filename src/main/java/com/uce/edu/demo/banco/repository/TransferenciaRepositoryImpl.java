@@ -1,5 +1,9 @@
 package com.uce.edu.demo.banco.repository;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.demo.banco.modelo.Transferencia;
@@ -36,6 +40,20 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 		System.out.println("Se busca la transferencia con cuenta de origen: " + numeroCuentaOrigen
 				+ "y cuenta destino: " + numeroCuentaDestino);
 
+	}
+
+	@Override
+	public List<Transferencia> consultar(String cuente, LocalDateTime fechainicio, LocalDateTime fechafin) {
+		// TODO Auto-generated method stub
+		//Aqui deberia estar el sql a la base
+		List<Transferencia> listaConsultada= new ArrayList<>();
+		Transferencia trans1= new Transferencia();
+		trans1.setFechaTransferencia(LocalDateTime.now());
+		trans1.setNumeroCuentaDestino("1234");
+		trans1.setNumeroCuentaOrigen("12567");
+		
+		listaConsultada.add(trans1);
+		return listaConsultada;
 	}
 
 }

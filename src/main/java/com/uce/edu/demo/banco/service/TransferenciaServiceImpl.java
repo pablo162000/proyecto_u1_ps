@@ -2,6 +2,7 @@ package com.uce.edu.demo.banco.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,6 +60,12 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 	public void eliminartransferencia(String numeroCuentaOrigen, String numeroCuentaDestino) {
 
 		this.iTransferenciaRepository.eliminartransferencia(numeroCuentaOrigen, numeroCuentaDestino);
+	}
+
+	@Override
+	public List<Transferencia> consultar(String cuente, LocalDateTime fechainicio, LocalDateTime fechafin) {
+		// TODO Auto-generated method stub
+		return this.iTransferenciaRepository.consultar(cuente, fechainicio, fechafin);
 	}
 
 }
