@@ -1,5 +1,7 @@
 package com.uce.edu.demo.banco.service;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,7 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 	@Override
 	public CuentaBancaria buscar(String numero) {
 		// TODO Auto-generated method stub
+		//Se puede llamar al repository porque no hay logica nueva de negocio, sin embargo debe haber logica qque es la linea de abajo 
 		return this.bancariaRepository.buscar(numero);
 	}
 
@@ -35,5 +38,13 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 
 		this.bancariaRepository.eliminar(numero);
 	}
+
+	@Override
+	public BigDecimal calcularInteres(String numeroCta, BigDecimal saldo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }
