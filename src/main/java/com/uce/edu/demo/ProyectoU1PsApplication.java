@@ -1,34 +1,39 @@
 package com.uce.edu.demo;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.modelo.Estudiante;
-import com.uce.edu.demo.modelo.Materia;
-import com.uce.edu.demo.modelo.Matricula;
-import com.uce.edu.demo.modelo.ProfesorGeneral;
-import com.uce.edu.demo.modelo.ProfesorMateria;
-import com.uce.edu.demo.service.IMatriculaService;
+import com.uce.edu.demo.tour.modelo.Alojamiento;
+import com.uce.edu.demo.tour.modelo.Cliente;
+import com.uce.edu.demo.tour.modelo.Reservacion;
+import com.uce.edu.demo.tour.modelo.TransporteAereo;
+import com.uce.edu.demo.tour.modelo.TransporteTerrestre;
+import com.uce.edu.demo.tour.service.AlojamientoServiceImpl;
+import com.uce.edu.demo.tour.service.ClienteServiceImpl;
+import com.uce.edu.demo.tour.service.ReservacionServiceImpl;
 
 @SpringBootApplication
 public class ProyectoU1PsApplication implements CommandLineRunner {
 
 	@Autowired
-	private ProfesorGeneral profesorGeneral;
-
+	private TransporteAereo transporteAereo;
 	@Autowired
-	private ProfesorGeneral profesorGeneral1;
+	private TransporteAereo transporteAereo1;
 	@Autowired
-	private ProfesorMateria profesorMateria;
-
+	private TransporteTerrestre transporteTerrestre;
 	@Autowired
-	private ProfesorMateria profesorMateria1;
+	private TransporteTerrestre transporteTerrestre1;
 	@Autowired
-	private IMatriculaService iMatriculaService;
+	private ClienteServiceImpl clienteServiceImpl;
+	@Autowired
+	private AlojamientoServiceImpl alojamientoServiceImpl;
+	@Autowired
+	private ReservacionServiceImpl reservacionServiceImpl;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1PsApplication.class, args);
@@ -37,34 +42,51 @@ public class ProyectoU1PsApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		this.profesorGeneral.setNombre("Pablo");
-		this.profesorGeneral.setApellido("Suntaxi");
 
 		System.out.println("EJEMPLO SINGLETON");
-		System.out.println(this.profesorGeneral);
-		System.out.println("-----------------------------------");
-		System.out.println(this.profesorGeneral1);
-		this.profesorGeneral1.setNombre("Pepito");
-		System.out.println("-----------------------------------");
-		System.out.println(this.profesorGeneral);
-		System.out.println("-----------------------------------");
-		System.out.println(this.profesorGeneral1);
+		this.transporteAereo.setDestino("Sidney");
+		this.transporteAereo.setHorasViaje(15);
+		System.out.println(this.transporteAereo);
+		System.out.println("----------------------------------------------------");
+		System.out.println(this.transporteAereo1);
+		System.out.println("----------------------------------------------------");
+		this.transporteAereo1.setDestino("Ciudad de Mexico");
+		System.out.println(this.transporteAereo1);
+
 		System.out.println();
 		System.out.println("EJEMPLO PROTOTYPE");
-		this.profesorMateria.setNombre("Daniel");
-		this.profesorMateria.setApellido("Teran");
-		System.out.println(this.profesorMateria);
-		System.out.println("-----------------------------------");
-
-		System.out.println(this.profesorMateria1);
-		System.out.println("-----------------------------------");
-
-		Matricula matricula1 = new Matricula();
-		matricula1.setEstudiante(new Estudiante());
-		matricula1.setMateria(new ArrayList<Materia>());
-		matricula1.setNumero("123");
-		this.iMatriculaService.ingresarMatricula(matricula1);
-
+		this.transporteTerrestre.setDestino("Guayaquil");
+		this.transporteTerrestre .setHorasViaje(9);
+		System.out.println(this.transporteTerrestre);
+		System.out.println("----------------------------------------------------");
+		System.out.println(this.transporteTerrestre1);
+		
+		Cliente cliente= new Cliente();
+		cliente.setNombre("Pablo");
+		cliente.setApellido("Suntaxi");
+		
+		clienteServiceImpl.insertarCliente(cliente);
+		
+		Alojamiento alojamiento = new Alojamiento();
+		alojamiento.setNombre("Hotel 1");
+		alojamiento.setPrecio(new BigDecimal(200));
+		alojamiento.setTipo("VIP");
+		
+		alojamientoServiceImpl.insertarAlojamiento(alojamiento);
+		
+		Reservacion reservacion= new Reservacion();
+		reservacion.setFechadeIngreso(LocalDateTime.now());
+		reservacion.setAlojamiento(alojamiento);
+		reservacion.setHuesped(cliente);
+		reservacion.setNumeroReservacion("123");
+		System.out.println();
+		reservacionServiceImpl.insertarReservacion(reservacion);
+		
+		
+	
+		
+		
+		
 	}
 
 }
